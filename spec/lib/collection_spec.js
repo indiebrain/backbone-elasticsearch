@@ -1,13 +1,13 @@
 describe("BackboneElasticsearch.Collection", function() {
 
-  it("fetches from collection's url attribute", sinon.test(function() {
+  it("fetches from collection's url attribute", function() {
     var FakeBackboneElasticserachCollection = BackboneElasticsearch.Collection.extend({
       url: "http://example.com"
     });
     var collection = new FakeBackboneElasticserachCollection();
 
     expect(collection.url).to.equal("http://example.com");
-  }));
+  });
 
   it("parses source objects from the ElasticSearch response", function() {
     var expectedObject = {
@@ -32,6 +32,7 @@ describe("BackboneElasticsearch.Collection", function() {
     expect(parsedObject).
       to.deep.equal(expectedObject);
   });
+
   it("parses an empty array when the response is null", function() {
     var collection = new BackboneElasticsearch.Collection();
 

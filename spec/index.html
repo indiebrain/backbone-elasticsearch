@@ -17,10 +17,13 @@
     <div id="mocha"></div>
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../lib/collection.js"></script>
+    <script src="../lib/model.js"></script>
     <script>mocha.setup('bdd')</script>
     <script>var expect = chai.expect</script>
     <script src="features/parsing_a_search_response_spec.js"></script>
+    <script src="features/parsing_a_type_response_spec.js"></script>
     <script src="lib/collection_spec.js"></script>
+    <script src="lib/model_spec.js"></script>
     <script>
       if(window.mochaPhantomJS) {
         mochaPhantomJS.run()

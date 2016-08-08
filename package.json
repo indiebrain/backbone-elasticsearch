@@ -1,0 +1,11 @@
+{
+  "name": "backbone-elasticsearch",
+  "version": "0.0.1",
+  "description": "Adapters and Utilities to speak ElasticSearch with Backbone",
+  "main": "backbone-elastic.js",
+  "scripts": {
+    "test": "gulp spec"
+  },
+  "author": "Aaron Kuehler",
+  "license": "MIT"
+}

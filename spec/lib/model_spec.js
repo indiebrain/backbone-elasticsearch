@@ -2,14 +2,49 @@ describe("BackboneElasticsearch.Model", function() {
 
   it("fetches from the model's url", sinon.test(function() {
     var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
-      urlRoot: "http://example.com/posts"
+      urlRoot: "http://example.com/index/type"
     });
     var model = new FakeBackboneElasticserachModel({id: "123"});
 
-    expect(model.url()).to.equal("http://example.com/posts/123");
+    expect(model.url()).to.equal("http://example.com/index/type/123");
   }));
 
-  it("parses the '_source' key's attributes from the ElasticSearch type response", function(){
+  it("allows the user to specify the ElasticSearch index and type of the collection", function() {
+    var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
+      elasticSearchIndex: "index",
+      elasticSearchType: "type",
+      urlRoot: "http://example.com"
+    });
+    var model = new FakeBackboneElasticserachModel({id: "123"});
+
+    expect(model.url()).to.equal("http://example.com/index/type/123");
+  });
+
+  it("errors if the ElasticSearch index is specified but the ElasticSearch type is not", function() {
+    var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
+      elasticSearchIndex: "index",
+      urlRoot: "http://example.com"
+    });
+    var model = new FakeBackboneElasticserachModel({id: "123"});
+
+    expect(function() {
+      model.url();
+    }).to.throw(Error, 'An "elasticSerachType" property must be specified if an "elasticSearchIndex" property is present');
+  });
+
+  it("errors if the ElasticSearch type is specified but the ElasticSearch index is not", function() {
+    var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
+      elasticSearchType: "type",
+      urlRoot: "http://example.com"
+    });
+    var model = new FakeBackboneElasticserachModel({id: "123"});
+
+    expect(function() {
+      model.url();
+    }).to.throw(Error, 'An "elasticSerachIndex" property must be specified if an "elasticSearchType" property is present');
+  });
+
+  it("parses the '_source' key's attributes from the ElasticSearch type response", function() {
     var expectedObject = {
       id: "expected-id",
       name: "expected-name"

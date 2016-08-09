@@ -21,7 +21,9 @@ gulp.task("lint", function() {
 var closureCompiler = require('gulp-closure-compiler');
 gulp.task("build", function() {
   var outputFileName = "backbone-elasticsearch.js";
-  var compilerFlags = {};
+  var compilerFlags = {
+    compilation_level: 'WHITESPACE_ONLY'
+  };
   return gulp
     .src(javascriptSourcesPath)
     .pipe(closureCompiler({

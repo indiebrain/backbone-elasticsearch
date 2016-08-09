@@ -9,6 +9,15 @@ describe("BackboneElasticsearch.Model", function() {
     expect(model.url()).to.equal("http://example.com/index/type/123");
   }));
 
+  it("errors if the user does not specify a url or urlRoot property", function() {
+    var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({});
+    var model = new FakeBackboneElasticserachModel({id: "123"});
+
+    expect(function() {
+      model.url();
+    }).to.throw(Error, 'A "url" property or function must be specified');
+  });
+
   it("allows the user to specify the ElasticSearch index and type of the collection", function() {
     var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
       elasticSearchIndex: "index",

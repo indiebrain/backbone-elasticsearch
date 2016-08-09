@@ -7,6 +7,7 @@ Adapters and Utilities to speak ElasticSearch with Backbone
 ### Dependencies
 
 * NodeJS
+  `brew install node`
 
   Note: This project DOES NOT have a runtime dependency on
   Node. NodeJS is required ONLY for managing development dependencies;
@@ -17,6 +18,18 @@ Adapters and Utilities to speak ElasticSearch with Backbone
   Required for the Node Package Manager (NPM)
   https://nodejs.org/en/
 
+* PhantomJS 2+
+  `brew install phantomjs`
+
+  Required to run the test suite.
+
+* JRE 8+
+
+  `brew cask install java`
+
+  Required only to run the Google Closure Compiler to produce the
+  final "compiled" `bin/backbone-elasticsearch.js` file.
+
 ### Getting Started
 
 * Install dependencies
@@ -26,10 +39,6 @@ $ npm install
 ```
 
 ### Running Tests
-
-#### Dependencies
-
-* PhantomJS 2+ `brew install phantomjs`
 
 * Run specs
 

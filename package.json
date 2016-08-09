@@ -4,7 +4,10 @@
   "description": "Adapters and Utilities to speak ElasticSearch with Backbone",
   "main": "backbone-elastic.js",
   "scripts": {
-    "test": "gulp spec"
+    "default": "gulp default",
+    "build": "gulp build",
+    "lint": "gulp lint",
+    "specs": "gulp spec"
   },
   "author": "Aaron Kuehler",
   "license": "MIT",

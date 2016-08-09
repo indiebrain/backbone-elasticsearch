@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 
+gulp.task("default", ['lint','spec']);
+
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 gulp.task("spec", function() {
   return gulp

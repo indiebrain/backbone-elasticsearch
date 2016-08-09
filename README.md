@@ -38,10 +38,21 @@ Adapters and Utilities to speak ElasticSearch with Backbone
 $ npm install
 ```
 
+### Linting
+```shell
+$ npm run-script lint
+```
+
 ### Running Tests
 
-* Run specs
+```shell
+$ npm run-script specs
+```
+
+### Compiling
 
 ```shell
-$ npm test
+$ npm run-script build
 ```
+
+* _NOTE: Outputs to the `<projectRoot>/build` directory_

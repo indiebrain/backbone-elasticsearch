@@ -20,8 +20,8 @@ describe("BackboneElasticsearch.Model", function() {
 
   it("allows the user to specify the ElasticSearch index and type of the collection", function() {
     var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
-      elasticSearchIndex: "index",
-      elasticSearchType: "type",
+      elasticsearchIndex: "index",
+      elasticsearchType: "type",
       urlRoot: "http://example.com"
     });
     var model = new FakeBackboneElasticserachModel({id: "123"});
@@ -31,26 +31,26 @@ describe("BackboneElasticsearch.Model", function() {
 
   it("errors if the ElasticSearch index is specified but the ElasticSearch type is not", function() {
     var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
-      elasticSearchIndex: "index",
+      elasticsearchIndex: "index",
       urlRoot: "http://example.com"
     });
     var model = new FakeBackboneElasticserachModel({id: "123"});
 
     expect(function() {
       model.url();
-    }).to.throw(Error, 'An "elasticSerachType" property must be specified if an "elasticSearchIndex" property is present');
+    }).to.throw(Error, 'An "elasticSerachType" property must be specified if an "elasticsearchIndex" property is present');
   });
 
   it("errors if the ElasticSearch type is specified but the ElasticSearch index is not", function() {
     var FakeBackboneElasticserachModel = BackboneElasticsearch.Model.extend({
-      elasticSearchType: "type",
+      elasticsearchType: "type",
       urlRoot: "http://example.com"
     });
     var model = new FakeBackboneElasticserachModel({id: "123"});
 
     expect(function() {
       model.url();
-    }).to.throw(Error, 'An "elasticSerachIndex" property must be specified if an "elasticSearchType" property is present');
+    }).to.throw(Error, 'An "elasticSerachIndex" property must be specified if an "elasticsearchType" property is present');
   });
 
   it("parses the '_source' key's attributes from the ElasticSearch type response", function() {
